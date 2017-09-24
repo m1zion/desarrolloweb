@@ -1,7 +1,31 @@
-.title-a{
-	background: green;
+/*font-family: 'Open Sans', sans-serif;
+font-family: 'Allerta', sans-serif;
+font-family: 'Montserrat', sans-serif;*/
+body{
+	font-family: 'Allerta', sans-serif;
 }
 
-.title-b{
-	background: salmon;
+.titulo {
+	font-size: 70px;
+	font-family: 'Montserrat', sans-serif;	
+}
+.title-a {
+	font-size: 25px;
+}
+.title-b {
+	font-size: 50px;
+}
+.guitarras h2 {
+	font-size: 35px;
+	font-family: 'Montserrat', sans-serif;
+}
+.portada {
+	background-image: url('../images/background.png');
+	color: white;
+}
+.guitarras {
+	color:#1F313C;
+}
+.menu {
+	font-size: 24px;
 }
