@@ -1,19 +1,29 @@
 /*font-family: 'Open Sans', sans-serif;
 font-family: 'Allerta', sans-serif;
 font-family: 'Montserrat', sans-serif;*/
+/** {
+	border: 2px solid red;
+	padding: 10px 13px 5px 15px;
+	margin: 10px;
+}*/
 body{
 	font-family: 'Allerta', sans-serif;
+	margin: 0px;
 }
 
 .titulo {
 	font-size: 70px;
-	font-family: 'Montserrat', sans-serif;	
+	font-family: 'Montserrat', sans-serif;
+	margin-bottom: 0px;	
+	margin-top: 70px;
 }
 .title-a {
 	font-size: 25px;
+	margin-top: 0;
 }
 .title-b {
 	font-size: 50px;
+	margin-bottom: 20px;
 }
 .guitarras h2 {
 	font-size: 35px;
@@ -22,9 +32,13 @@ body{
 .portada {
 	background-image: url('../images/background.png');
 	color: white;
+	width: 800px;
+	margin:auto;
 }
 .guitarras {
 	color:#1F313C;
+	width: 800px;
+	margin:auto;
 }
 .menu {
 	font-size: 24px;
@@ -33,7 +47,20 @@ body{
 
 .menu li {
 	display: inline-block;
+	margin-left: 30px;
 }
 .logotipo {
 	display: inline-block;
+}
+.portada {
+	padding: 20px;
+}
+
+.portada button {
+	margin-bottom: 70px;
+}
+
+.header {
+	width: 800px;
+	margin:auto;
 }
