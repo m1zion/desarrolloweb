@@ -7,8 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat|Open+Sans:400,700" rel="stylesheet">
 </head>
 <body>
-	<header class="header"> <!--Header-->
-		 
+	<header class="header contenedor"> <!--Header-->
 	<figure class="logotipo"><!--Logotipo-->
 		<img src="images/invie.png" width="186" height="60" alt="Invie Logotipo">
 	</figure>
@@ -23,32 +22,40 @@
 	</header>
 
 	<section id ="portada" class="portada"><!--Portada-->
-		<h1 class="titulo">Guitarras invisibles</h1>
-		<h3 class="title-a">Sé la estrella de rock que siempre quisiste ser</h3>
-		<button>Conoce mas</button>
+		<div class="contenedor">
+			<h1 class="titulo">Guitarras invisibles</h1>
+			<h3 class="title-a">Sé la estrella de rock que siempre quisiste ser</h3>
+			<button>Conoce mas</button>
+		</div>
+		
 	</section>
 
-	<section  id ="guitarras" class ="guitarras"><!--Guitarras-->
+	<section  id ="guitarras" class ="guitarras contenedor"><!--Guitarras-->
 		<h2>Nuestras Guitarras</h2>
 		<article class="guitarra"> <!--Guitarra 1 -->
-			<img src="images/invie-acustica.png" width = "200" alt="Invie acustica"> 
-			<h3  class="title-b">Invie Acustica</h3>
-			<ol>
-				<li>Estilo Vintage</li>
-				<li>Madera Pura</li>
-				<li>Incluye estuche invisible de aluminio</li>
-			</ol>
+			<img class = "right" src="images/invie-acustica.png" width = "350" alt="Invie acustica"> 
+			<div class="contenedor-guitarra-a">
+				<h3  class="title-b">Invie Acustica</h3>
+				<ol>
+					<li>Estilo Vintage</li>
+					<li>Madera Pura</li>
+					<li>Incluye estuche invisible de aluminio</li>
+				</ol>
+			</div>
+			
 		</article>
 		<article class="guitarra"> <!--Guitarra 2 -->
-			<img src="images/invie-classic.png" width="200"> 
-			<h3  class="title-b">Invie Clasica</h3>
-			<ol>
-				<li>Estilo Vintage</li>
-				<li>Liviana</li>
-				<li>Inicia tu camino como rockstar</li>
-			</ol>
+			<img class = "left" src="images/invie-classic.png" width="350"> 
+			<div class="contenedor-guitarra-b">
+				<h3  class="title-b">Invie Clasica</h3>
+				<ol>
+					<li>Estilo Vintage</li>
+					<li>Liviana</li>
+					<li>Inicia tu camino como rockstar</li>
+				</ol>
+			</div>			
 		</article>
-		<article>Guitarra 2</article>
+		<!--<article>Guitarra 2</article>-->
 	</section>
 </body>
 </html>

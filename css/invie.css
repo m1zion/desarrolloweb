@@ -32,13 +32,14 @@ body{
 .portada {
 	background-image: url('../images/background.png');
 	color: white;
-	width: 800px;
-	margin:auto;
+	padding: 20px;
 }
+.portada button {
+	margin-bottom: 70px;
+}
+
 .guitarras {
 	color:#1F313C;
-	width: 800px;
-	margin:auto;
 }
 .menu {
 	font-size: 24px;
@@ -52,15 +53,29 @@ body{
 .logotipo {
 	display: inline-block;
 }
-.portada {
-	padding: 20px;
-}
-
-.portada button {
-	margin-bottom: 70px;
-}
-
-.header {
+.contenedor {
 	width: 800px;
 	margin:auto;
+}
+.guitarra{
+	margin:10px;
+	padding: 10px;
+	overflow: hidden;
+	border:1px solid #1F313C;
+}
+.right {
+	float:right;
+}
+.left{
+	float: left;
+}
+.guitarra ol{
+	padding: 0;
+}
+.contenedor-guitarra-a{
+	padding: 20px;
+}
+.contenedor-guitarra-b{
+	margin-left: 370px;
+	padding: 20px;
 }
