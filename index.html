@@ -64,7 +64,41 @@
 				<a href="tel:+5255445566"><strong>Telefono</strong><span>55445566</span></a>
 				<a href="mailto:contacto@invie.com"><strong>E-mail</strong><span>contacto@invie.com</span></a>
 			</div>
-			<div class="formulario"></div>
+			<form class="formulario">
+				<label for="nombre">Nombre</label>
+				<input type="text" name="nombre" required placeholder="Nombre" id="nombre">
+				<label for="email">Nombre</label>
+				<input type="email" name="email" id="email" required placeholder="E-mail">
+				<div class="sexo">
+					<label for="mujer">
+						<input type="radio" id="mujer" name="sexo" value="mujer">Mujer
+					</label>
+					<label for="hombre">
+						<input type="radio" id="hombre" name ="sexo" value="hombre">Hombre
+					</label>
+				</div>
+				<div class="intereses">
+					<label for="cotizacion">
+						<input type="checkbox" id="cotizacion" name="intereses" value="cotizacion">Cotización
+					</label>
+					<label for="reclamos">
+						<input type="checkbox" id="reclamos" name="intereses" value="reclamos">Reclamos
+					</label>
+					<label for="comentarios">
+						<input type="checkbox" id="comentarios" name="intereses" value="comentarios">Comentarios
+					</label>
+					<label for="otros">
+						<input type="checkbox" id="otros" name="intereses" value="otros">Otros
+					</label>
+				</div>
+				<div>
+					<label for="comentarios">
+						Comentarios
+						<textarea name="comentarios" id="comentarios" cols="30" rows="7"></textarea>
+						<input type="submit" >
+					</label>
+				</div>	
+			</form>
 		</div>
 	</footer>
 </body>
