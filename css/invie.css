@@ -10,7 +10,6 @@ body{
 	font-family: 'Allerta', sans-serif;
 	margin: 0px;
 }
-
 .titulo {
 	font-size: 70px;
 	font-family: 'Montserrat', sans-serif;
@@ -37,7 +36,6 @@ body{
 .portada button {
 	margin-bottom: 70px;
 }
-
 .guitarras {
 	color:#1F313C;
 }
@@ -47,7 +45,6 @@ body{
 	position: absolute;
     right: 0;
 }
-
 .menu li {
 	display: inline-block;
 	margin-left: 30px;
@@ -99,6 +96,13 @@ body{
 .footer {
 	background-color: #273b47
 }
+.contacto{
+	display: flex;
+	width:290px;
+	flex-wrap: wrap;
+	border:1px solid red;
+	align-items: center;
+}
 .contacto img{
 	display:block;
 }
@@ -108,4 +112,61 @@ body{
 .contacto a{
 	color: white;
 	text-decoration: none;
+	margin:10px 10px 10px;
+}
+.footer .contenedor {
+	display: flex;
+	justify-content: space-between;
+}
+.formulario{
+	width: 430px;
+	display: flex;
+	color: white;
+	border: 1px solid red;
+	padding: 45px 10px;
+}
+.col1, .col2 {
+	display: flex;
+	flex-direction: column;
+}
+.col1{
+	margin-right: 15px;
+}
+.col2{
+	align-items: flex-start;
+}
+.intereses label{
+	font-size: 12px;
+}
+.formulario label, .sexo, .intereses{
+	margin-bottom: 10px;
+}
+.sexo{
+	margin-top: 10px;
+}
+
+table{
+	width: 100%;
+}
+
+th{
+	background-color: #273b47;
+	color:white;
+	padding: 10px 20px;
+	text-align: left;
+}
+td{
+	padding: 20px
+}
+
+table,td,th{
+	border:1px solid #273b47;
+	border-collapse: collapse;
+}
+
+.menu li:before {
+	content: '°';
+	/*font-size: 40px;*/
+	line-height: 0px;
+	color: blue;
 }
