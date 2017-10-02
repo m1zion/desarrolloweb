@@ -10,11 +10,61 @@ body{
 	font-family: 'Allerta', sans-serif;
 	margin: 0px;
 }
+table{
+	width: 100%;
+}
+
+th{
+	background-color: #273b47;
+	color:white;
+	padding: 10px 20px;
+	text-align: left;
+}
+td{
+	padding: 20px
+}
+
+table,td,th{
+	border:1px solid #273b47;
+	border-collapse: collapse;
+}
+input, textarea {
+	outline: 0;
+}
+
+input:focus, textarea:focus{
+	background-color: lightgray;
+}
+.contenedor {
+	width: 800px;
+	margin:auto;
+	position: relative;
+}
+.background {
+	background-image: url('../images/background.png');
+	background-size: cover;
+}
+
+.boton{
+	border-radius: 12px;
+	background-color: #fd324e;
+	border: 0;
+	padding: 7px 15px;
+	font-size: 18px;
+	color: white;
+	background: linear-gradient(to left,#fe344e,#ff7250);
+	cursor: pointer;	
+	text-decoration: none;
+}
+
 .titulo {
 	font-size: 70px;
 	font-family: 'Montserrat', sans-serif;
 	margin-bottom: 0px;	
 	margin-top: 70px;
+}
+.titulo span{
+	text-decoration: underline;
 }
 .title-a {
 	font-size: 25px;
@@ -24,21 +74,24 @@ body{
 	font-size: 50px;
 	margin-bottom: 20px;
 }
+.guitarras {
+	color:#1F313C;
+  	margin-bottom: 60px;
+}
 .guitarras h2 {
 	font-size: 35px;
 	font-family: 'Montserrat', sans-serif;
 }
 .portada {
-	background-image: url('../images/background.png');
 	color: white;
 	padding: 20px;
+	
+	height: 500px;
 }
 .portada button {
 	margin-bottom: 70px;
 }
-.guitarras {
-	color:#1F313C;
-}
+
 .menu {
 	font-size: 24px;
 	display: inline-block;
@@ -49,20 +102,34 @@ body{
 	display: inline-block;
 	margin-left: 30px;
 }
+.menu a{
+	color: white;
+	text-decoration: none;
+}
 .logotipo {
 	display: inline-block;
+	margin-left: 0;
 }
-.contenedor {
-	width: 800px;
-	margin:auto;
+
+.contenedorflex {
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: auto
 }
+
 .guitarra{
-	margin:10px;
-	padding: 10px;
+	 margin: 10px 10px 40px 10px;
+ 	 padding: 10px;
 	/*overflow: hidden;*/
 	border:1px solid #1F313C;
 	border-radius: 10px;
 }
+
+.guitarra.b {
+  height: 190px;
+}
+
 .right {
 	float:right;
 	position: relative;
@@ -71,7 +138,7 @@ body{
 .left{
 	float: left;
 	position: relative;
-	top:80px;
+	/*top:80px;*/
 }
 .guitarra ol{
 	padding: 0;
@@ -80,21 +147,19 @@ body{
 	padding: 20px;
 }
 .contenedor-guitarra-b{
+	/*padding: 20px;*/
 	margin-left: 370px;
-	padding: 20px;
+  	position: relative;
+  	bottom: 90px;
 }
 
 .header{
 	position: relative;
 }
-.boton{
-	border-radius: 5px;
-	background-color: #fd324e;
-	border: 0;
-	padding: 7px;
-}
+
 .footer {
-	background-color: #273b47
+	background-color: #273b47;
+	padding: 45px 10px;
 }
 .contacto{
 	display: flex;
@@ -122,8 +187,7 @@ body{
 	width: 430px;
 	display: flex;
 	color: white;
-	border: 1px solid red;
-	padding: 45px 10px;
+	border: 1px solid red;	
 }
 .col1, .col2 {
 	display: flex;
@@ -135,6 +199,9 @@ body{
 .col2{
 	align-items: flex-start;
 }
+.col2 .boton{
+	margin-top: 20px;
+}
 .intereses label{
 	font-size: 12px;
 }
@@ -145,28 +212,15 @@ body{
 	margin-top: 10px;
 }
 
-table{
-	width: 100%;
-}
-
-th{
-	background-color: #273b47;
-	color:white;
-	padding: 10px 20px;
-	text-align: left;
-}
-td{
-	padding: 20px
-}
-
-table,td,th{
-	border:1px solid #273b47;
-	border-collapse: collapse;
-}
 
 .menu li:before {
 	content: '°';
 	/*font-size: 40px;*/
 	line-height: 0px;
-	color: blue;
+	color: white;
+}
+
+.tabla{
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
