@@ -1,0 +1,34 @@
+/*#2E0244 middel red purple
+#4F2C77 regalia
+#FFF175 sunny
+#FFCA44 sunglow
+#BE95D6 bright lavander
+*/
+body{
+	background-color: #2E0244;
+	color:white;
+	font-family:Arial;
+	margin:0;
+}
+
+
+.caja{
+	width: 200px;
+	border:1px solid #BE95D6;
+	margin-bottom: 40px;
+}
+
+.tipo-a{
+	margin:0 auto;
+}
+
+.tipo-b{
+	margin-left: calc(100vw/2 - 100px);
+}
+
+.tipo-c {
+	border: 1px solid #4F2C77;
+}
+.tipo-c .caja{
+	display: inline-block;
+}
