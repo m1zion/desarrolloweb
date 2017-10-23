@@ -9,6 +9,7 @@ body{
 	color:white;
 	font-family:Arial;
 	margin:0;
+	padding-bottom: 100px;
 }
 
 
@@ -28,7 +29,83 @@ body{
 
 .tipo-c {
 	border: 1px solid #4F2C77;
+	text-align: center; /*Alinea las cajas*/
 }
 .tipo-c .caja{
-	display: inline-block;
+	display: inline-block; 
+	text-align: left;/*Alinea el texto*/
+}
+
+.tipo-d{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin: 0 auto;
+	/*width: 200px; o heredamos la clase caja*/
+}
+.relative {
+	position: relative;
+	border: 1px solid #4F2C77;
+	height: 400px;
+}
+
+.tipo-e{
+	position: absolute;
+	left: 50%;
+	margin-left: -100px;
+}
+
+.tipo-f{
+	display: flex;
+	justify-content: center;
+}
+
+.tipo-g{
+	display: table;
+	width: 100%;
+}
+.tipo-g .caja{
+	display: table-cell;
+	width: 100px;
+	/*text-align: center;*/
+}
+
+.tipo-g2{
+	display: table;
+	width: 100%;
+	height: 300px;
+}
+.tipo-g2 .caja{
+	display: table-cell;
+	width: 100px;
+	vertical-align: middle;
+	/*text-align: center;*/
+}
+
+.tipo-h {
+	height: 500px;
+	background-color:#4F2C77; 
+	padding-top: 150px;
+	box-sizing: border-box;
+}
+
+.alto{
+	height: 500px;
+}
+.tipo-i{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tipo-j{
+	line-height: 500px;
+	background-color: #4F2C77; 
+	text-align: center;
+}
+
+.tipo-k > *{  /*Indica que todos los elementos que esten contenidos dentro de la clase*/
+	display: inline;
+	vertical-align: center;
 }
