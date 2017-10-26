@@ -1,0 +1,77 @@
+body{
+	background-color: lightblue;
+	margin:0; /*la pagina no tiene scroll*/
+}
+
+.container{
+	height: 100vh;
+	width: 100vw;
+	background: url("../images/bg-wrapper.png");
+	background-position: center bottom;
+	background-repeat: no-repeat;
+}
+
+.cvander{
+	/*background-color: red;*/
+	width: 166px; /*Lo mismo que la imagen*/
+	height:171px;
+	position: absolute;
+	left:50px;
+	bottom:0;
+	overflow: hidden; /*para que no se mueva en caso que la imagen se salga*/
+	/*animation:tiempo nombre_animacion;*/
+}
+
+.cvander:hover{
+	/*background-color: blue;
+	transition: .3s;*/
+}
+
+.cvander:hover .cvander-head{
+	/*border:10px solid red;*/
+	/*transform:translateY(6px);*/
+	animation:.6s cvander infinite;
+
+}
+
+.cvander-body{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.cvander-head{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	transition: .7s;
+}
+
+.cvander-ipad{
+	position: absolute;
+	left: 0;
+	bottom: -20px;
+}
+
+
+@keyframes cvander{
+	/* 0%.... 50%...100%*/
+	/*from to*/
+	/*from{
+		border: 1px solid red;
+	}
+	to {
+		border:10px solid green;
+		transform:translateY(6px);
+	}*/
+
+	0% { 
+
+	}
+	50% {
+		transform:translateY(6px) rotate(2deg);
+
+	}
+	100%{
+		transform:translateY(0px);
+	}
+}
