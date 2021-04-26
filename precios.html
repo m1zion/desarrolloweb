@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/invie.css">
 	<link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat|Open+Sans:400,700" rel="stylesheet">
+
 </head>
 <body>
 	<header class="header  background"> <!--Header-->
@@ -21,6 +22,9 @@
 			</nav>
 		</div>
 	</header>
+
+	          <a href="#" id="createButton"> CREAR </a>
+
 	<section class = "tabla">
 		<div class="contenedor tabla">
 			<table>
@@ -98,6 +102,127 @@
 			</form>
 		</div>
 	</footer>
+<script type="text/javascript" src="scripts/requests.js"></script>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript">
 
+var API_URL = "https://graph.instagram.com/me/media?fields=";
+const API_TOKEN = "https://api.instagram.com/oauth/access_token";
+const API_TOKEN_LONG = "https://graph.instagram.com/access_token";
+const CLIENT_URI = "https://m1zion.github.io/desarrolloweb/precios.html";
+const client_id = "463144711634611";
+const client_secret = "6ee7444face9a4beecdff4c7478bd9a1";
+const grant_type = "authorization_code";
+const grant_typeLong = "ig_exchange_token";
+var access_token ="sin token";
+
+var access_token_var;// = getShortLiveToken();
+
+//async 
+function getShortLiveToken(){
+	var details = {
+	'client_id':client_id,
+	'client_secret':client_secret,
+	'code':findGetParameter("code"),	
+	'grant_type':grant_type,
+	'redirect_uri':CLIENT_URI
+	};
+	var formBody = [];
+	for (var property in details) {
+	  var encodedKey = encodeURIComponent(property);
+	  //var encodedValue = encodeURIComponent(details[property]);
+	  var encodedValue = details[property];
+	  formBody.push(encodedKey + "=" + encodedValue);
+	}
+	formBody = formBody.join("&");
+
+/*
+	const data = new URLSearchParams();
+	for (const pair of new FormData(formElement)) {
+    	data.append(pair[0], pair[1]);
+	}*/
+
+	console.log(formBody);
+	//console.log(data)
+	//await
+	//'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    fetch(API_TOKEN, {
+	  method: 'POST',
+	  headers: {
+	    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+	  },
+	  body: formBody
+	})
+	.then(response => response.json())
+    .then((data) => {
+    	console.log(data);
+    	//console.log(data.error_message);
+    	//console.log(data.user_id);
+    	//console.log(data.access_token);
+    	get_LongToken(data);//console.log(data);
+    })
+    .catch(error=>console.log(error));
+    //return resu;
+}
+
+async function getData() {
+    getShortLiveToken()
+    	.then((data) => {
+    	return data.error_message;});
+    console.log(error_message);
+}
+
+function get_LongToken(rta){
+	var params = {
+	'client_secret':client_secret,
+	'access_token':rta.access_token,
+	'grant_type':grant_typeLong
+	};
+	//console.log(rta.user_id);
+	var userID = rta.user_id;
+	Requests.getLongToken(client_secret,rta.access_token,grant_typeLong).then((rta2) => {
+    //console.log(rta);
+    //console.log(rta.access_token);
+    //console.log(userID);
+    getUserData(userID,rta2.access_token)
+	}); 
+}
+
+function getUserData(user_id,long_access_token){
+	//alert(client_secret);
+	//var tempToken = "IGQVJYaVJROFJNMEljaGZAEdmZAXN25Rc0M5UzZAhOHhINGh0bTktZAzVlbkllcUFPZATFlZA1JkSEREbnhiNk84S2tBZA21XQ0RMX1ZAYZA0J0bko3X0FHTEdocHlQTDNhSGZACcTVseG1rTmtn";
+	/*var user_id2 = user_id-1;
+	console.log(user_id2);*/
+	Requests.getUserDataInfo(user_id,long_access_token).then((rta) => {
+    console.log(rta);
+    console.log(rta.username);
+	}); 
+}
+getShortLiveToken();
+
+//access_token_var = getShortLiveToken();
+//console.log(access_token_var);
+
+
+
+
+
+
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+          tmp = item.split("=");
+          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
