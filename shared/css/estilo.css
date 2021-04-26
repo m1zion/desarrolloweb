@@ -1,0 +1,41 @@
+body{
+	background-color: lightgray;
+	min-height: 100vh; /*100% de lo que mide el navegador NECESARIO*/
+	margin:0;
+	display: flex;
+	flex-direction: column;
+}
+
+h2{
+	margin: 0;
+}
+p {
+	margin:0;
+}
+header {
+	height: 50px;
+	background-color:darkslategray;
+}
+
+section {
+	background-color: lightyellow;
+	flex:1; /*para que tenga todo el alto*/
+}
+
+footer {
+ 	background-color: greenyellow;
+ 	/*height: 100px;*/
+ 	/*position: fixed;
+ 	bottom: 0;
+ 	left: 0;
+ 	right: 0;*/
+}
+
+
+/*****************************************
+stylus -- Para hacer hojas de estilo
+django plantillas
+react js . vistas dinamicas
+super agent  -- Datos
+redux -- FLujo de datos
+******************************************/

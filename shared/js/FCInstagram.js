@@ -30,8 +30,8 @@ if (typeof Object.create !== "function") {
 
 (function ($, window, document, undefined) {
   var Instagram = {
-    //API_URL: "https://graph.instagram.com/me/media?fields=",
-    API_URL: "https://m1zion.github.io/desarrolloweb/?code=AQD9W_pjp699gZlmrvn4iAWNIypm-_0PWMaPuUMZATQoKnqHxHnRYvCU86uOkPinFU3MTn2cq8PKMLN7tLX62byUuqEDv31XZlrwVRRFkpjTzh9POhPREf_tRK4b1Ie_v0sla8widEWXFDWLQw4rcs_7lq0TKmCVN_FM6kW_ZVeS2vz4eo9lRF05-vmRK_QI8obMQJH6OOn9UQIfUk9vvKDmGM9xLT-jSrl-LnsJyLCilQ",
+    //https://api.instagram.com/v1/users/search?q=[USERNAME]&access_token=[ACCESS TOKEN]
+    API_URL: "https://graph.instagram.com/me/media?fields=",
     API_FIELDS: "caption,media_url,media_type,permalink,timestamp,username",
 
     /**
@@ -40,6 +40,7 @@ if (typeof Object.create !== "function") {
      * @param {jQuery Object} elem
      */
     initialize: function (options, elem) {
+      //console.log(options);
       this.elem = elem;
       this.$elem = $(elem);
       (this.accessToken = $.fn.FCInstagram.accessData.accessToken),
@@ -61,6 +62,7 @@ if (typeof Object.create !== "function") {
     //   messages = null;
 
       self.fetch().done(function (results) {
+        //console.log(results);
         if (results.data) {
           self.displayPhotos(results);
         } else if (results.error.message) {
@@ -179,7 +181,6 @@ if (typeof Object.create !== "function") {
     if (jQuery.fn.FCInstagram.accessData.accessToken) {
       this.each(function () {
         var instagram = Object.create(Instagram);
-
         instagram.initialize(options, this);
       });
     } else {

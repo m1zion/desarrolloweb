@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="shared/css/instagram.css">
+    <link href="shared/css/instagram.css" rel="stylesheet" />
+</head>
+<body>
+<!-- BEGIN - Show Instagram -->
+<div id="instafeed" class="instagram-gallery-medium"></div>
+<!-- END - Show Instagram -->
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="shared/js/base.js"></script>
+    <script type="text/javascript" src="shared/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="shared/js/common.js"></script>
+    
+<!-- BEGIN - FC Instagram - Script -->
+    <script src="shared/js/FCInstagram.js"></script>
+    <script>
+    jQuery.fn.FCInstagram.accessData = {
+        accessToken: "IGQVJXMW1RTVN6VWRvQ1VNaDNYRUlsaFFoZAmJnME82MGdsYzNVMXJjY0F5VVNSS0dPWW1iRXRtYklJOWdCN0o2a3FpUHBNdEtwLXcwT2E1WUk3dEszMEZA1d1V1bG1iR2hfanNwdmRTMUpmMVNERjdQMwZDZD",
+    };
+    $('#instafeed').FCInstagram({
+        max: 9,
+        autoplay: true,
+        complete: function () {
+            console.log('completed');
+        }
+    });
+    </script>
+<!-- END - FC Instagram - Script -->
+
+</body>
+</html>

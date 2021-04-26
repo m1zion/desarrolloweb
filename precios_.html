@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Precios - Tus mejores guitarras!!</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/invie.css">
+	<link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat|Open+Sans:400,700" rel="stylesheet">
+
+</head>
+<body>
+	<header class="header  background"> <!--Header-->
+		<div class="contenedor">
+			<figure class="logotipo"><!--Logotipo-->
+			<img src="images/invie.png" width="186" height="60" alt="Invie Logotipo">
+			</figure>
+			<nav class="menu"> <!-- Menu -->
+				<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="index.html#guitarras">Guitarras</a></li>
+				<li><a href="precios.html">Precios</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	          <a href="#" id="createButton"> CREAR </a>
+
+	<section class = "tabla">
+		<div class="contenedor tabla">
+			<table>
+				<thead>
+					<tr>
+						<th>Modelo</th>
+						<th>Precio</th>
+						<th>Descripción</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Invie classic</td>
+						<td>$100,000</td>
+						<td>Una guitarra muy pro</td>
+					</tr>
+					<tr>
+						<td>Invie classic</td>
+						<td>$100,000</td>
+						<td>Una guitarra muy pro</td>
+					</tr>
+					<tr>
+						<td>Invie classic</td>
+						<td>$100,000</td>
+						<td>Una guitarra muy pro</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<div class="contenedor">
+			<div class="contacto">
+				<img src="images/invie-white.png" alt="logotipo blanco">
+				<a href="tel:+5255445566"><strong>Telefono</strong><span>55445566</span></a>
+				<a href="mailto:contacto@invie.com"><strong>E-mail</strong><span>contacto@invie.com</span></a>
+			</div>
+			<form class="formulario">
+				<div class="col1">
+					<label for="nombre">Nombre</label>
+					<input type="text" name="nombre" required placeholder="Nombre" id="nombre">
+					<label for="email">Nombre</label>
+					<input type="email" name="email" id="email" required placeholder="E-mail">
+					<div class="sexo">
+						<label for="mujer">
+							<input type="radio" id="mujer" name="sexo" value="mujer" checked>Mujer
+						</label>
+						<label for="hombre">
+							<input type="radio" id="hombre" name ="sexo" value="hombre">Hombre
+						</label>
+					</div>
+					<div class="intereses">
+						<label for="cotizacion">
+							<input type="checkbox" id="cotizacion" name="intereses" value="cotizacion" checked>Cotización
+						</label>
+						<label for="reclamos">
+							<input type="checkbox" id="reclamos" name="intereses" value="reclamos">Reclamos
+						</label>
+						<label for="comentarios">
+							<input type="checkbox" id="comentarios" name="intereses" value="comentarios">Comentarios
+						</label>
+						<label for="otros">
+							<input type="checkbox" id="otros" name="intereses" value="otros">Otros
+						</label>
+					</div>
+				</div>
+				<div class="col2">
+					<label for="comentarios">
+						Comentarios
+						<textarea name="comentarios" id="comentarios" cols="30" rows="7"></textarea>
+						<input type="submit" class="boton">
+					</label>
+				</div>	
+			</form>
+		</div>
+	</footer>
+<script type="text/javascript" src="scripts/requests.js"></script>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript">
+	var code = findGetParameter("code");
+	var API_URL = "https://graph.instagram.com/me/media?fields=";
+	const API_TOKEN = "https://api.instagram.com/oauth/access_token";
+	const API_TOKEN_LONG = "https://graph.instagram.com/access_token";
+	const CLIENT_URI = "https://m1zion.github.io/desarrolloweb/precios.html";
+	const client_id = "463144711634611";
+	const client_secret = "6ee7444face9a4beecdff4c7478bd9a1";
+	const grant_type = "authorization_code";
+	const grant_typeLong = "ig_exchange_token";
+	var getShortLiveTokenString;
+	let error_message;
+	let user_id;
+
+getShortLiveToken();
+
+//getShortLiveTokenString = getShortLiveToken().then(data => console.log(data));
+/*console.log("-------------------------"); 
+console.log(getShortLiveTokenString);
+console.log(getShortLiveTokenString.error_message); 
+console.log(getShortLiveTokenString.access_token);  
+console.log(error_message); */
+
+async function getShortLiveToken (){
+	var details = {
+	'code':findGetParameter("code"),
+	'client_id':client_id,
+	'client_secret':client_secret,
+	'grant_type':grant_type,
+	'redirect_uri':CLIENT_URI
+	};
+	var formBody = [];
+	for (var property in details) {
+	  var encodedKey = encodeURIComponent(property);
+	  var encodedValue = encodeURIComponent(details[property]);
+	  formBody.push(encodedKey + "=" + encodedValue);
+	}
+	formBody = formBody.join("&");
+
+	return await fetch(API_TOKEN, {
+	  method: 'POST',
+	  headers: {
+	    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+	  },
+	  body: formBody
+	})
+	.then(response=>{return response.json()})
+	.then(data=>{get_LongToken(data)})
+	.catch(error=>console.log(error));
+}
+
+
+/*
+function getShortLiveToken__(){
+	var details = {
+	'code':findGetParameter("code"),
+	'client_id':client_id,
+	'client_secret':client_secret,
+	'grant_type':grant_type,
+	'redirect_uri':CLIENT_URI
+	};
+
+
+	var formBody = [];
+	for (var property in details) {
+	  var encodedKey = encodeURIComponent(property);
+	  var encodedValue = encodeURIComponent(details[property]);
+	  formBody.push(encodedKey + "=" + encodedValue);
+	}
+	formBody = formBody.join("&");
+
+	let resu = fetch(API_TOKEN, {
+	  method: 'POST',
+	  headers: {
+	    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+	  },
+	  body: formBody
+	})
+	//.then(data=>{short_access_token = data.json()})
+	//.then(data=>{return data.json()})
+	.then(data=>{return data.json()})
+	.then(res=>{console.log(res.error_message)})
+	.catch(error=>console.log(error));
+	return resu;
+
+}
+*/
+/*********GETTING SHORT LIVE ACCESS TOKEN************/
+
+
+
+/*******************************************************/
+/*.then(data => {
+	set_ShortToken(data)
+})*/
+
+
+
+//console.log("Longa access token variable "+long_access_token);
+
+function get_LongToken(rta){
+	console.log(rta.access_token);
+	console.log(rta.user_id);
+	console.log(rta.error_message);
+	var longToken = Requests.getLongToken(client_secret,rta.access_token,grant_typeLong)
+	.then((rta) => { return rta.json();}) 
+	.then((data) =>{ console.log(data)});
+	console.log(longToken);
+	//short_access_token_error = (rta.error_message);
+}
+function get_LongToken2(rta){
+	var params = {
+	'client_secret':client_secret,
+	'access_token':rta.access_token,
+	'grant_type':grant_typeLong
+	};
+	//short_access_token="MIS";
+	//console.log(rta.user_id);
+	//console.log(rta.error_message);
+/*const url= API_TOKEN_LONG+"?client_secret="+client_secret+"&access_token="+rta.access_token+"&grant_typeLong="+grant_typeLong;
+/***************************************************************/
+/*$(document).ready(function () {
+    Requests.getLongToken(client_secret,rta.access_token,grant_typeLong)
+    .then((rta) => {  console.log(rta);  })
+    .catch((error) => { console.log(rta.error_message); });
+ });
+*/
+/***************************************************************/
+Requests.getLongToken(client_secret,rta.access_token,grant_typeLong).then((rta) => {
+    //console.log(rta.access_token);
+    setlongToken(rta.access_token);
+}); 
+//console.log(long_access_token);
+/***************************************************************/
+/*fetch(API_TOKEN)
+.then(data=>{return data.json()})
+.then(res=>{console.log(res)})
+.catch(error=>{console.log(error)});*/
+/***************************************************************/
+/*$(document).ready(function () {
+    $.getJSON(url,function(result){
+    	console.log(result)
+    });
+})*/
+/****************************************************************/
+} //END FUNCTION
+
+
+
+function setlongToken(user_id,longToken) {
+	$.each(longToken, function (index, list) {
+	 long_access_token = list.access_token;
+	 console.log(long_access_token);
+	});
+	//long_access_token="AAA";//longToken;
+	//console.log("Longa access token function "+long_access_token);
+	//console.log(long_access_token);
+}
+
+
+
+
+/*
+        Requests.getLongToken(client_secret,rta.access_token,grant_typeLong)
+        .then((rta) => { console.log(rta); });*/
+
+
+
+
+	function llena_empresa() {
+
+
+        archivoValidacion = "https://treelife737.org/ws/inscripcion_empresa.php?jsoncallback=?";
+        $.getJSON(API_TOKEN, {code}).done(function (respuestaServer) {
+ 			console.log(respuestaServer);
+        });
+        return false;
+      }
+
+
+
+	function findGetParameter(parameterName) {
+	    var result = null,
+	        tmp = [];
+	    location.search
+	        .substr(1)
+	        .split("&")
+	        .forEach(function (item) {
+	          tmp = item.split("=");
+	          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+	        });
+	    return result;
+	}
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
