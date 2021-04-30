@@ -8,16 +8,22 @@
 <a href="pagina2.html">Pagina 2</a>
 <a href=""  name="volverApp" id="volverApp" >volver app</a>
 <a href=""  name="volverApp2" id="volverApp2" >volver app</a>
+
+<a name="treelife" id="treelife" href="https://treelife737.page.link/rY6Y"></a>
+
 <script type="text/javascript" src="scripts/utils.js"></script>
 <script type="text/javascript">
-	alert("entro");
+	//alert("entro");
 	let urlParams = Utils.searchParams(window.location.search);
     let url = urlParams["appUrl"];
-    alert(url);
+    //alert(url);
     /*$("#volverApp").click(function () {
           window.open(url);
     });*/
-     document.getElementById("volverApp2").href=url;
+    document.getElementById("volverApp2").href=url;
+	setTimeout(function(){ document.getElementById("treelife").click(); }, 5000);
+  
+
 </script>
 </body>
 </html>
