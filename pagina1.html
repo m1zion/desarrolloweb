@@ -20,9 +20,15 @@
     /*$("#volverApp").click(function () {
           window.open(url);
     });*/
-    document.getElementById("volverApp2").href=url;
-	setTimeout(function(){ document.getElementById("treelife").click(); }, 5000);
-  
+    //document.getElementById("volverApp2").href=url;
+	//setTimeout(function(){ document.getElementById("treelife").click(); }, 5000);
+	$('#volverApp').click(function(){
+	 window.close(); 
+	 return false; });
+
+	$('#volverApp2').click(function(){
+	 window.history.back(); 
+	 return false; });
 
 </script>
 </body>
